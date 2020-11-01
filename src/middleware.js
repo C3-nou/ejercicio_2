@@ -24,8 +24,8 @@ exports.create = async function(req, res){
       fecha_de_notificaci_n: req.body.fecha_de_notificaci_n ? new Date(req.body.fecha_de_notificaci_n) : false,
       departamento: req.body.departamento ? req.body.departamento : false,
       departamento_nom: req.body.departamento_nom ? req.body.departamento_nom : false,
-      ciudad_municipio: req.body.ciudad_municipio ? req.body.ciudad_municipio : false,
-      ciudad_municipio_nom: req.body.ciudad_municipio_nom ? req.body.ciudad_municipio_nom : false,
+      ciudad: req.body.ciudad ? req.body.ciudad : false,
+      ciudad_nom: req.body.ciudad_nom ? req.body.ciudad_nom : false,
       edad: req.body.edad ? req.body.edad : false,
       unidad_medida: req.body.unidad_medida ? req.body.unidad_medida : false,
       sexo: req.body.sexo ? req.body.sexo : false,
@@ -92,7 +92,7 @@ exports.findInfo = (req, res) => {
   console.log(req.body)
   if( req.body.gender ){ filter_obj = { sexo: req.body.gender } };
   if( req.body.estado ){ filter_obj = { estado: { [Op.like]: `%${req.body.estado}%` } } };
-  if(req.body.ciudad) { filter_obj = { ciudad_municipio: parseInt(req.body.ciudad) } }
+  if(req.body.ciudad) { filter_obj = { ciudad: parseInt(req.body.ciudad) } }
   Infected.findAll({ where: filter_obj })
     .then(data => {
       res.send(data);
