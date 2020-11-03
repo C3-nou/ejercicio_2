@@ -15,7 +15,7 @@ var corsOptions = {
 
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Ejercicio 2." });
 });
 
 require("./src/routes.js")(app);
