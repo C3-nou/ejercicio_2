@@ -33,7 +33,7 @@ async function search () {
     });
 }
 
-setTimeout(search, 600000);
+setInterval(search, 600000);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
